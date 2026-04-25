@@ -3,7 +3,7 @@ import { useResultStore } from '@/stores/useResultStore';
 export const useGeminiStream = () => {
   const { setPartialData, setStatus, setError } = useResultStore();
 
-  const runSimulation = async (payload: any) => {
+  const runSimulation = async (payload: { country: string; electionType: string; role: string; budgetSplit: { digital: number; ground: number; traditional: number }; keyDecisions: string[] }) => {
     setStatus('loading');
     setPartialData({});
     try {
@@ -90,8 +90,8 @@ export const useGeminiStream = () => {
           throw new Error('Received malformed response from simulation engine');
         }
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
       setStatus('error');
     }
   };

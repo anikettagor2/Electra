@@ -31,7 +31,7 @@ export const useResultStore = create<ResultState>((set) => ({
       impact: data.impact ? { ...state.data?.impact, ...data.impact } : state.data?.impact,
       scenario: data.scenario ? { ...state.data?.scenario, ...data.scenario } : state.data?.scenario,
       publicReaction: data.publicReaction ? { ...state.data?.publicReaction, ...data.publicReaction } : state.data?.publicReaction,
-    } as any
+    } as Partial<SimulationResult>
   })),
   setStatus: (status) => set({ status }),
   setError: (error) => set({ error }),

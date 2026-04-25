@@ -6,6 +6,7 @@ interface UIState {
   nextStep: () => void;
   prevStep: () => void;
   setStep: (step: number) => void;
+  resetStep: () => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({

@@ -33,12 +33,12 @@ Only output the JSON object, nothing else. Do not include markdown code blocks.`
         'Cache-Control': 'no-cache',
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[Electra] Final Simulation error:', error);
     return new Response(
       JSON.stringify({ 
         error: 'Failed to run simulation via Vertex AI.',
-        details: error?.message || 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error'
       }),
       {
         status: 500,
