@@ -36,10 +36,10 @@ export function EVMSimulator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto grid md:grid-cols-[1.2fr_0.8fr] gap-8 items-start">
+    <div className="w-full flex flex-col gap-6 items-center">
       {/* Control Unit (EVM) */}
-      <div className="bg-zinc-800 rounded-[2.5rem] p-8 border-8 border-zinc-700 shadow-2xl relative overflow-hidden">
-        <div className="flex items-center justify-between mb-8 px-4">
+      <div className="w-full bg-zinc-800 rounded-[2.5rem] p-6 md:p-8 border-8 border-zinc-700 shadow-2xl relative overflow-hidden">
+        <div className="flex items-center justify-between mb-6 px-2">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
             <span className="text-[10px] font-black uppercase tracking-tighter text-zinc-500">Ready</span>
@@ -47,30 +47,30 @@ export function EVMSimulator() {
           <div className="text-[10px] font-black uppercase tracking-tighter text-zinc-500">Model EVM-2026</div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {CANDIDATES.map((c) => (
             <div 
               key={c.id}
-              className={`flex items-center gap-6 p-5 rounded-2xl border-2 transition-all ${
+              className={`flex items-center gap-4 p-4 rounded-2xl border-2 transition-all ${
                 selectedId === c.id ? 'bg-indigo-500/10 border-indigo-500' : 'bg-black/40 border-transparent hover:border-zinc-600'
               } ${isVoted && selectedId !== c.id ? 'opacity-50 grayscale' : ''}`}
             >
-              <div className={`w-12 h-12 rounded-xl ${c.color} flex items-center justify-center text-2xl font-bold text-white shadow-lg`}>
+              <div className={`w-10 h-10 rounded-xl ${c.color} flex items-center justify-center text-xl font-bold text-white shadow-lg shrink-0`}>
                 {c.symbol}
               </div>
-              <div className="flex-1">
-                <p className="text-base font-bold whitespace-nowrap">{c.name}</p>
-                <p className="text-[10px] text-zinc-500 font-mono">ID: 00{c.id}</p>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-bold leading-tight">{c.name}</p>
+                <p className="text-[9px] text-zinc-500 font-mono">ID: 00{c.id}</p>
               </div>
               <button
                 onClick={() => handleVote(c.id)}
                 disabled={isVoted}
-                className={`w-12 h-12 rounded-full border-4 border-zinc-700 shadow-inner flex items-center justify-center transition-all ${
+                className={`w-10 h-10 rounded-full border-4 border-zinc-700 shadow-inner flex items-center justify-center transition-all shrink-0 ${
                   selectedId === c.id ? 'bg-red-500 border-red-400' : 'bg-blue-600 hover:bg-blue-500 active:scale-95'
                 }`}
                 aria-label={`Vote for ${c.name}`}
               >
-                <div className={`w-4 h-4 rounded-full ${selectedId === c.id ? 'bg-white animate-pulse' : 'bg-white/20'}`} />
+                <div className={`w-3 h-3 rounded-full ${selectedId === c.id ? 'bg-white animate-pulse' : 'bg-white/20'}`} />
               </button>
             </div>
           ))}
