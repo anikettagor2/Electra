@@ -1,69 +1,59 @@
-# Electra: Predictive Election Simulation Engine
+# Electra: High-Fidelity Election Simulation & Voter Journey
 
-## Overview
+## 🗳️ Project Overview
 
-**Electra** is a high-fidelity, interactive election simulation dashboard designed to model and predict electoral outcomes using advanced AI and cause-effect logic. Built with **Next.js 16.1.3**, **React 19.2.3**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**, Electra provides a production-grade UI for policy-makers, candidates, and analysts to explore complex political scenarios.
+**Electra** is a comprehensive, AI-powered election simulation platform designed to educate users on the **Indian Electoral Process** and model complex political scenarios. Built for the **Virtual Prompt War 2026**, Electra bridges the gap between raw data and immersive storytelling.
 
-The engine leverages **Google Gemini 1.5 Pro** to process multi-dimensional variables—including budget allocations, demographic turnout, and strategic decisions—to generate realistic voter behavior models and election results.
+The platform features a dual-core experience:
+1.  **Immersive Voter Journey**: A 10-stage interactive walkthrough of the election lifecycle, from electoral roll preparation to the final declaration of results.
+2.  **Predictive Simulation Engine**: Powered by **Google Gemini 1.5 Pro**, allowing strategists to model cause-and-effect outcomes based on budget, strategy, and demographics.
 
-## Key Features
+## 🌟 Key Features
 
-- **Dynamic Parameter Configuration**: Adjust budget splits (Digital vs. Ground vs. Traditional), turnout percentages, and key policy decisions.
-- **Cause-Effect Simulation**: Real-time modeling of how specific decisions impact different voter segments (Urban, Rural, Youth, Diaspora).
-- **India-Specific Modeling**: Specialized logic for caste arithmetic, OBC mobilization, and incumbency factors.
-- **Interactive Dashboards**: Premium data visualizations showing vote share, swing factors, and public reaction.
-- **AI-Driven Insights**: Deep-dive analysis from Gemini 1.5 Pro on "What If" scenarios and strategic impact reports.
+### 1. The 10-Stage Election Journey
+An immersive educational module detailing the Election Commission of India (ECI) workflow:
+- **Interactive Voter Registration**: A simulator for verifying voter identity and biometrics.
+- **Nomination & Scrutiny**: Visual guide to the candidate vetting process.
+- **The Campaign**: Modeling the impact of digital vs. ground mobilization.
+- **Interactive EVM Simulator**: A high-fidelity module with a functional VVPAT slip generator.
 
-## Tech Stack
+### 2. AI-Driven Simulation (Gemini 1.5 Pro)
+- **Multi-Dimensional Modeling**: Analyze how decisions impact Urban, Rural, Youth, and Diaspora segments.
+- **Dynamic Budgeting**: Real-time visualization of resource allocation impact.
+- **Strategic Intelligence Reports**: Automated, deep-dive insights generated after each simulation using Gemini 1.5 Pro.
 
-- **Frontend**: Next.js 16.1.3 (App Router), React 19, TypeScript
-- **Styling**: Tailwind CSS v4, Framer Motion (Animations), GSAP
-- **State Management**: Zustand
-- **AI Engine**: Google Gemini 1.5 Pro (via `@google/generative-ai`)
-- **Backend**: Firebase Cloud Functions (v2), Firestore
-- **Deployment**: Vercel (Frontend), Firebase (Backend)
+### 3. AI Assistant (Gemini 1.5 Flash)
+- **Flash-Chat**: A low-latency chatbot powered by Gemini 1.5 Flash to answer questions about election laws, stages, and voter registration.
 
-## Architecture
+## 🛠️ Tech Stack
 
-1. **Input Phase**: Users select country, election type, and define strategy parameters.
-2. **Processing Phase**: Parameters are sent to a secure Firebase Function (`/api/simulate`).
-3. **Simulation Phase**: Gemini 1.5 Pro processes the inputs against realistic voter segments and historical trends.
-4. **Visualization Phase**: Results are streamed back and rendered into interactive charts and reaction modules.
+- **Framework**: Next.js 16.1 (App Router), React 19
+- **AI Models**: Google Gemini 1.5 Pro (Strategy), Gemini 1.5 Flash (Chat)
+- **Infrastructure**: Google Cloud Run (Hosting), Cloud Build (CI/CD)
+- **Animations**: Framer Motion, GSAP, Lenis (Smooth Scroll)
+- **Visuals**: Recharts (Analytics), Three.js (3D Components)
+- **Testing**: Vitest, React Testing Library
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js 20+
 - Google Gemini API Key
 
 ### Installation
+1.  `npm install`
+2.  Create `.env.local` with `GEMINI_API_KEY`.
+3.  `npm run dev`
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/electra.git
-   cd electra
-   ```
+### Testing
+Run the comprehensive test suite:
+```bash
+npm test
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+## 📜 Compliance & Accessibility
+- **WCAG 2.1 Compliant**: High contrast dark mode, ARIA labels, and semantic HTML.
+- **Mobile First**: Fully responsive design for all screen sizes.
 
-3. Configure environment variables:
-   Create a `.env.local` file:
-   ```env
-   NEXT_PUBLIC_GEMINI_API_KEY=your_api_key_here
-   GEMINI_API_KEY=your_api_key_here
-   ```
-
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-Open [http://localhost:3000](http://localhost:3000) to start the simulation.
-
-## License
-
-© 2026 Electra Simulation Engine. All rights reserved.
+---
+© 2026 Electra Simulation Engine | Virtual Prompt War Submission

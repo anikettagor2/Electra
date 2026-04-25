@@ -75,7 +75,7 @@ function Particles() {
   if (particles.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       {particles.map((p, i) => (
         <motion.div
           key={i}
@@ -116,6 +116,7 @@ export function Hero() {
       <motion.div
         style={{ y: bgY }}
         className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
       >
         {/* Main orb */}
         <motion.div
@@ -157,6 +158,7 @@ export function Hero() {
       {/* ── Grid noise overlay ── */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        aria-hidden="true"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
@@ -170,6 +172,7 @@ export function Hero() {
       {/* ── Scan line ── */}
       <motion.div
         className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent pointer-events-none"
+        aria-hidden="true"
         animate={{ top: ["10%", "90%", "10%"] }}
         transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
       />
@@ -243,7 +246,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto mb-16"
         >
           {/* Primary CTA – shimmer effect */}
-          <Link href="/simulate" className="w-full sm:w-auto">
+          <Link href="/simulate" className="w-full sm:w-auto" aria-label="Start election simulation">
             <button className="relative group overflow-hidden flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-primary text-white font-semibold rounded-xl transition-all shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_50px_rgba(99,102,241,0.6)] hover:scale-[1.02] active:scale-[0.98]">
               {/* shimmer sweep */}
               <motion.div
@@ -263,7 +266,7 @@ export function Hero() {
           </Link>
 
           {/* Secondary CTA */}
-          <Link href="/results" className="w-full sm:w-auto">
+          <Link href="/elections" className="w-full sm:w-auto" aria-label="View election dashboard">
             <button className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/25 transition-all backdrop-blur-sm">
               <motion.div
                 animate={{ scale: [1, 1.3, 1] }}

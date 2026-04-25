@@ -41,8 +41,9 @@ export const SimulationPanel = () => {
               
               <div className="grid gap-6">
                 <div>
-                  <label className="text-sm font-medium mb-2 block text-zinc-300">Country</label>
+                  <label htmlFor="country-select" className="text-sm font-medium mb-2 block text-zinc-300">Country</label>
                   <select
+                    id="country-select"
                     className="w-full p-2.5 rounded-lg border border-zinc-800 bg-zinc-950 text-white focus:ring-2 focus:ring-indigo-500/50 outline-none transition-all"
                     value={simulationState.country}
                     onChange={(e) => simulationState.setCountry(e.target.value)}
@@ -53,8 +54,9 @@ export const SimulationPanel = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-2 block text-zinc-300">Election Type</label>
+                  <label htmlFor="election-type-select" className="text-sm font-medium mb-2 block text-zinc-300">Election Type</label>
                   <select
+                    id="election-type-select"
                     className="w-full p-2.5 rounded-lg border border-zinc-800 bg-zinc-950 text-white focus:ring-2 focus:ring-indigo-500/50 outline-none transition-all"
                     value={simulationState.electionType}
                     onChange={(e) => simulationState.setElectionType(e.target.value)}
@@ -176,10 +178,10 @@ export const SimulationPanel = () => {
 
         {currentStep < 4 && (
           <div className="flex justify-between mt-8 pt-6 border-t border-border">
-            <Button variant="outline" onClick={prevStep} disabled={currentStep === 1}>
+            <Button variant="outline" onClick={prevStep} disabled={currentStep === 1} aria-label="Go to previous step">
               Previous
             </Button>
-            <Button onClick={nextStep}>
+            <Button onClick={nextStep} aria-label="Go to next step">
               Next Step
             </Button>
           </div>

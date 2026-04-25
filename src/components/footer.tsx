@@ -20,10 +20,10 @@ export function Footer() {
               Engineering democratic projections for the next generation of strategists. Predictive modeling at the speed of thought.
             </p>
             <div className="flex space-x-3">
-              <SocialIcon href="#" icon={<Twitter className="w-4 h-4" />} />
-              <SocialIcon href="#" icon={<Instagram className="w-4 h-4" />} />
-              <SocialIcon href="#" icon={<Linkedin className="w-4 h-4" />} />
-              <SocialIcon href="#" icon={<Youtube className="w-4 h-4" />} />
+              <SocialIcon href="#" icon={<Twitter className="w-4 h-4" />} label="Twitter" />
+              <SocialIcon href="#" icon={<Instagram className="w-4 h-4" />} label="Instagram" />
+              <SocialIcon href="#" icon={<Linkedin className="w-4 h-4" />} label="LinkedIn" />
+              <SocialIcon href="#" icon={<Youtube className="w-4 h-4" />} label="YouTube" />
             </div>
           </div>
 
@@ -84,11 +84,12 @@ export function Footer() {
   );
 }
 
-function SocialIcon({ href, icon }: { href: string; icon: React.ReactNode }) {
+function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
   return (
     <Link
       href={href}
       className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-zinc-500 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
+      aria-label={label}
     >
       {icon}
     </Link>

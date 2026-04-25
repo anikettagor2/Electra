@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   try {
     const payload = await req.json();
 
-    const systemInstruction = "You are an Election Simulation AI. Generate highly detailed, realistic simulation results in strict JSON format.";
+    const systemInstruction = "You are an expert Election Simulation AI specializing in the Indian electoral process under the Election Commission of India (ECI). Generate highly detailed, realistic simulation results that respect the Model Code of Conduct (MCC). Analyze the impact of VVPAT verification and EVM security on public trust. Output must be in strict JSON format.";
 
     const prompt = `
 Based on the following inputs:

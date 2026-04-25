@@ -26,6 +26,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
+    { name: "Journey", href: "/journey" },
     { name: "Elections", href: "/elections" },
     { name: "Simulate", href: "/simulate" },
     { name: "About", href: "/about" },
@@ -81,6 +82,7 @@ export function Navbar() {
             <button 
               onClick={() => setIsOpen(true)}
               className="p-2 text-white md:hidden"
+              aria-label="Open navigation menu"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -96,10 +98,17 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             className="fixed inset-0 z-[110] bg-black p-8 flex flex-col font-heading"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
           >
             <div className="flex justify-between items-center mb-16">
               <span className="text-2xl font-black text-white">ELECTRA<span className="text-primary">.</span></span>
-              <button onClick={() => setIsOpen(false)} className="p-2 text-white">
+              <button 
+                onClick={() => setIsOpen(false)} 
+                className="p-2 text-white"
+                aria-label="Close navigation menu"
+              >
                 <X className="w-8 h-8" />
               </button>
             </div>

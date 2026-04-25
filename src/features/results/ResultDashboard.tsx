@@ -58,8 +58,9 @@ export const ResultDashboard = () => {
             variant="ghost" 
             className="text-zinc-400 hover:text-white hover:bg-white/5 transition-all"
             onClick={() => { resetResult(); setStep(1); }}
+            aria-label="Run a new simulation scenario"
           >
-            <RotateCcw className="w-4 h-4 mr-2" />
+            <RotateCcw className="w-4 h-4 mr-2" aria-hidden="true" />
             Run New Scenario
           </Button>
         )}
@@ -88,7 +89,7 @@ export const ResultDashboard = () => {
                       <p className="text-indigo-400 font-mono animate-pulse">STREAMING DATA...</p>
                     </div>
                   ) : (
-                    <ResponsiveContainer width="100%" height="100%">
+                    <ResponsiveContainer width="100%" height="100%" aria-label="Pie chart showing projected voter distribution">
                       <PieChart>
                         <Pie
                           data={chartData}
@@ -264,6 +265,7 @@ export const ResultDashboard = () => {
                 <Button 
                   className="w-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/25 py-6 rounded-xl transition-all font-bold"
                   onClick={() => { resetResult(); setStep(1); }}
+                  aria-label="Synthesize new dataset and start new simulation"
                 >
                   Synthesize New Dataset
                 </Button>

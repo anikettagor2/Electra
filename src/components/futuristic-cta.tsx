@@ -59,7 +59,7 @@ export function FuturisticCTA() {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                   </button>
                 </Link>
-                <Link href="/results" className="w-full sm:w-auto">
+                <Link href="/elections" className="w-full sm:w-auto">
                   <button className="flex items-center justify-center gap-4 px-10 py-5 bg-white/5 border border-white/10 text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl hover:bg-white/10 transition-all font-mono">
                     <Terminal className="w-4 h-4" />
                     View Dashboard

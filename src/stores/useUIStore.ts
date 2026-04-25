@@ -14,4 +14,5 @@ export const useUIStore = create<UIState>((set) => ({
   nextStep: () => set((state) => ({ currentStep: Math.min(state.currentStep + 1, state.totalSteps) })),
   prevStep: () => set((state) => ({ currentStep: Math.max(state.currentStep - 1, 1) })),
   setStep: (step) => set({ currentStep: step }),
+  resetStep: () => set({ currentStep: 1 }),
 }));

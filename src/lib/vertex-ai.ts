@@ -8,7 +8,7 @@ export async function generateAIResponseStream(
   userProfile: { age: number; state: string; registrationStatus: string },
   history: { role: string; parts: { text: string }[] }[]
 ): Promise<ReadableStream> {
-  const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new Error('GEMINI_API_KEY is not defined in environment variables.');
   
   const genAI = new GoogleGenerativeAI(apiKey);
