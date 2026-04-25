@@ -1,0 +1,42 @@
+"use client";
+
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { LenisProvider } from "@/components/home/lenis-provider";
+import { Hero } from "@/components/home/hero";
+import { StickyScroll } from "@/components/home/sticky-scroll";
+import { BeforeAfter } from "@/components/home/before-after";
+import { ParallaxGallery } from "@/components/home/parallax-gallery";
+import { ScrollText } from "@/components/home/scroll-text";
+import { FuturisticCTA } from "@/components/futuristic-cta";
+import { CustomCursor } from "@/components/home/custom-cursor";
+import { ImmersiveBackground } from "@/components/home/immersive-background";
+import { EVMAnimation } from "@/components/home/evm-animation";
+
+export default function Home() {
+  return (
+    <LenisProvider>
+      <main className="bg-black text-white overflow-x-hidden selection:bg-primary selection:text-white relative">
+        <CustomCursor />
+        <ImmersiveBackground />
+        <Navbar />
+
+        <Hero />
+
+        <ScrollText />
+
+        <StickyScroll />
+
+        <EVMAnimation />
+
+        <BeforeAfter />
+
+        <ParallaxGallery />
+
+        <FuturisticCTA />
+
+        <Footer />
+      </main>
+    </LenisProvider>
+  );
+}
