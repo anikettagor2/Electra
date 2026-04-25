@@ -152,7 +152,7 @@ export function FuturisticHero() {
       >
         <div className="absolute inset-0 bg-black/40 z-10" />
         <img 
-          src="/images/image1.png" 
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" 
           alt="Simulation Engine Dashboard" 
           className="production-image w-full h-full object-cover grayscale transition-all duration-1000"
         />
