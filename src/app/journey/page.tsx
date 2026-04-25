@@ -116,7 +116,7 @@ export default function JourneyPage() {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           {/* Vertical Line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-zinc-800 hidden md:block" />
 
@@ -135,29 +135,31 @@ export default function JourneyPage() {
                   {i + 1}
                 </div>
 
-                <div className="flex-1 w-full">
-                  <div className={`p-8 rounded-3xl border border-white/5 bg-zinc-900/30 backdrop-blur-sm hover:bg-zinc-900/50 transition-all group`}>
+                <div className={`${stage.simulator ? 'w-full' : 'flex-1'} w-full`}>
+                  <div className={`p-8 rounded-3xl border border-white/5 bg-zinc-900/30 backdrop-blur-sm hover:bg-zinc-900/50 transition-all group ${stage.simulator ? 'md:p-12' : ''}`}>
                     <div className={`w-14 h-14 rounded-2xl ${stage.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                       <stage.icon className={`w-7 h-7 ${stage.color}`} />
                     </div>
                     <h3 className="text-2xl font-bold mb-3 tracking-tight">{stage.title}</h3>
-                    <p className="text-zinc-400 leading-relaxed mb-8">
+                    <p className={`text-zinc-400 leading-relaxed mb-8 ${stage.simulator ? 'max-w-2xl' : ''}`}>
                       {stage.description}
                     </p>
 
                     {stage.simulator && (
                       <div className="mt-8 border-t border-white/5 pt-8">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 text-[10px] font-black uppercase tracking-widest mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 text-[10px] font-black uppercase tracking-widest mb-10">
                           <Fingerprint className="w-3 h-3" />
                           Interactive Experience
                         </div>
-                        <stage.simulator />
+                        <div className="w-full">
+                          <stage.simulator />
+                        </div>
                       </div>
                     )}
                   </div>
                 </div>
                 
-                <div className="flex-1 hidden md:block" />
+                {!stage.simulator && <div className="flex-1 hidden md:block" />}
               </motion.div>
             ))}
           </div>

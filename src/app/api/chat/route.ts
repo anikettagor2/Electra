@@ -1,9 +1,32 @@
-import { NextRequest } from 'next/server';
+import { z } from 'zod';
 import { generateAIResponseStream } from '@/lib/vertex-ai';
+
+const chatSchema = z.object({
+  prompt: z.string().min(1),
+  history: z.array(z.object({
+    role: z.enum(['user', 'model']),
+    parts: z.array(z.object({ text: z.string() })),
+  })),
+  userProfile: z.object({
+    age: z.number(),
+    state: z.string(),
+    registrationStatus: z.string(),
+  }).optional(),
+});
 
 export async function POST(req: NextRequest) {
   try {
-    const { prompt, history, userProfile } = await req.json();
+    const body = await req.json();
+    const validation = chatSchema.safeParse(body);
+
+    if (!validation.success) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid chat payload', details: validation.error.format() }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const { prompt, history, userProfile } = validation.data;
 
     // Default profile if not provided
     const profile = userProfile || {
@@ -20,12 +43,12 @@ export async function POST(req: NextRequest) {
         'Cache-Control': 'no-cache',
       },
     });
-  } catch (error: unknown) {
+  } catch (error: any) {
     console.error('[Chat] Final error:', error);
     return new Response(
       JSON.stringify({ 
         error: 'Failed to chat via Vertex AI.',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: error?.message || 'Unknown error'
       }),
       {
         status: 500,

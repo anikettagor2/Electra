@@ -16,7 +16,7 @@ import { EVMAnimation } from "@/components/home/evm-animation";
 export default function Home() {
   return (
     <LenisProvider>
-      <main className="bg-black text-white overflow-x-hidden selection:bg-primary selection:text-white relative">
+      <main id="main-content" className="bg-black text-white overflow-x-hidden selection:bg-primary selection:text-white relative">
         <CustomCursor />
         <ImmersiveBackground />
         <Navbar />

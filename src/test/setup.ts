@@ -4,10 +4,10 @@ import { vi } from 'vitest';
 
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => React.createElement('div', props, children),
-    button: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => React.createElement('button', props, children),
+    div: ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) => React.createElement('div', props, children),
+    button: ({ children, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => React.createElement('button', props, children),
   },
-  AnimatePresence: ({ children }: React.PropsWithChildren<unknown>) => children,
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
 }));
 
 class ResizeObserver {

@@ -23,16 +23,16 @@ export const useResultStore = create<ResultState>((set) => ({
   data: null,
   status: 'idle',
   error: null,
-  setPartialData: (data) => set((state) => ({ 
-    data: { 
-      ...state.data, 
-      ...data,
-      result: data.result ? { ...state.data?.result, ...data.result } : state.data?.result,
-      impact: data.impact ? { ...state.data?.impact, ...data.impact } : state.data?.impact,
-      scenario: data.scenario ? { ...state.data?.scenario, ...data.scenario } : state.data?.scenario,
-      publicReaction: data.publicReaction ? { ...state.data?.publicReaction, ...data.publicReaction } : state.data?.publicReaction,
-    } as Partial<SimulationResult>
-  })),
+  setPartialData: (data) => set((state) => {
+    const newData = { ...state.data, ...data };
+    
+    if (data.result) newData.result = { ...state.data?.result, ...data.result } as SimulationResult['result'];
+    if (data.impact) newData.impact = { ...state.data?.impact, ...data.impact } as SimulationResult['impact'];
+    if (data.scenario) newData.scenario = { ...state.data?.scenario, ...data.scenario } as SimulationResult['scenario'];
+    if (data.publicReaction) newData.publicReaction = { ...state.data?.publicReaction, ...data.publicReaction } as SimulationResult['publicReaction'];
+    
+    return { data: newData };
+  }),
   setStatus: (status) => set({ status }),
   setError: (error) => set({ error }),
   reset: () => set({ data: null, status: 'idle', error: null }),
