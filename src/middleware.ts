@@ -10,7 +10,8 @@ const LIMIT = 10; // 10 requests per minute
 const WINDOW = 60 * 1000; // 1 minute
 
 export function middleware(req: NextRequest) {
-  const ip = req.ip || req.headers.get('x-forwarded-for') || 'anonymous';
+  const forwarded = req.headers.get('x-forwarded-for');
+  const ip = (typeof forwarded === 'string' ? forwarded.split(',')[0] : forwarded) || 'anonymous';
   const now = Date.now();
   
   if (req.nextUrl.pathname.startsWith('/api')) {
